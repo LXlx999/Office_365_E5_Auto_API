@@ -1,4 +1,4 @@
-# AutoApiSecret-加密版COPY
+# AutoApiSR-模仿人为开发版
 
 AutoApi系列：AutoApi、AutoApiSecret、AutoApiSR
 
@@ -10,9 +10,11 @@ AutoApi系列：AutoApi、AutoApiSecret、AutoApiSR
 * 若理解并接受上述说明，请接着操作；**若否，请点击浏览器右上角 X 。**
 
 ### 项目说明 ###
-* 利用github action实现**定时自动调用api**，保持E5开发活跃。
-* **免费，不需要额外设备/服务器**，部署完不用管啦。
-* 加密版，隐藏应用id+机密，保护账号安全。
+* 不定时调用
+
+  在每天**9，13，16**点的时候自动启动（**周六日休息**），持续一到两小时左右，**期间不定时调用api**，模仿人为应用开发
+  
+  (本项目运行完一次大概要一两小时，建议先弄AutoApiSecret看看Api是否全部调用成功，然后再把应用id、机密、token复制过来这边)
 
 ### 特别说明/Thanks ###
 * 原教程博主-黑幕（酷安id-Paran）：https://blog.432100.xyz/index.php/archives/50/
@@ -38,6 +40,18 @@ AutoApi系列：AutoApi、AutoApiSecret、AutoApiSR
 --------------------------------------------------------------
 
 ### 步骤 ###
+**如果想从AutoApiSecret项目直接升级**
+
+  可以把本项目代码下载，然后把里面部分文件更新进AutoApiSecret:
+  * 把 AutoApiSecret 的 1.py 删除，再把本项目的1.py 上传上去
+  
+  * 把 update.py 上传到 AutoApiSecret
+  
+  * 把 .github/workflow/AutoupdateToken.yml 上传到 AutoApiSecret 的 .github/workflow/ 文件夹下
+  
+  * 把 AutoApiSecret 的.github/workflow/autoapi.yml 删除，再把本项目的 .github/workflow/AutoApiSR.yml 上传上去
+
+**如果是以前从未接触AutoApi系列项目的**
 * 第一步，先大致浏览[原教程](https://blog.432100.xyz/index.php/archives/50/)，了解如何获取应用id、机密、refresh_token 3样东西，以方便接下来的操作。
 
 * 第二步，登陆/新建github账号，回到本项目页面，点击右上角fork本项目的代码到你自己的账号，然后你账号下会出现一个一模一样的项目，接下来的操作均在你的这个项目下进行。
@@ -91,7 +105,7 @@ AutoApi系列：AutoApi、AutoApiSecret、AutoApiSR
 
   我设定的每6小时自动运行一次，每次调用3轮（点击右上角星星/star也可以立马调用一次），你们自行斟酌修改（我也不知道保持活跃要调用多少次、多久）：
 
-  * 定时自动启动修改地方：（在.github/workflow/AutoApiSecret.yml文件里，自行百度cron定时任务格式，最短每5分钟一次）
+  * 定时自动启动修改地方：（在.github/workflow/autoapi.yml文件里，自行百度cron定时任务格式，最短每5分钟一次）
    
   ![image](https://github.com/wangziyingwen/ImageHosting/blob/master/AutoApi/定时.png)
    
